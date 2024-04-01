@@ -1,0 +1,1142 @@
+EX:1
+AND Gate (Pattern Matching)
+Aim:
+	Write a code for AND gate using Pattern Matching
+Code:
+andpat :: Bool -> Bool -> Bool
+andpat True b = b
+andpat False b = False
+
+main :: IO ()
+main = do
+    putStrLn "Enter the first boolean value (True/False):"
+    input1 <- getLine
+    putStrLn "Enter the second boolean value (True/False):"
+    input2 <- getLine
+
+    let bool1 = read input1 :: Bool
+        bool2 = read input2 :: Bool
+        result = andpat bool1 bool2
+
+    putStrLn $ "Result of andpat function: " ++ show result
+
+Output:
+ 
+
+
+
+
+
+EX:2
+OR Gate (Pattern Matching)
+Aim:
+	Write a code for OR gate using Pattern Matching
+Code:
+orpat :: Bool -> Bool -> Bool
+orpat False b = b
+orpat True b = True
+
+main :: IO ()
+main = do
+    putStrLn "Enter the first boolean value (True/False):"
+    input1 <- getLine
+    putStrLn "Enter the second boolean value (True/False):"
+    input2 <- getLine
+
+    let bool1 = read input1 :: Bool
+        bool2 = read input2 :: Bool
+        result = orpat bool1 bool2
+
+    putStrLn $ "Result of orpat function: " ++ show result
+Output:
+ 
+
+
+
+
+
+
+
+EX:3
+XOR Gate (Pattern Matching)
+Aim:
+	Write a code for XOR gate using Pattern Matching
+Code:
+xorpat :: Bool -> Bool -> Bool
+xorpat True False = True
+xorpat False True = True
+xorpat a b = False
+
+main :: IO ()
+main = do
+    putStrLn "Enter the first boolean value (True/False):"
+    input1 <- getLine
+    putStrLn "Enter the second boolean value (True/False):"
+    input2 <- getLine
+
+    let bool1 = read input1 :: Bool
+        bool2 = read input2 :: Bool
+        result = xorpat bool1 bool2
+
+    putStrLn $ "Result of xorpat function: " ++ show result
+Output:
+ 
+
+
+
+
+
+
+EX:4
+AND Gate (Wildcard)
+Aim:
+	Write a code for AND gate using Wildcard
+Code:
+andpat :: Bool -> Bool -> Bool
+andpat True b = b
+andpat False _ = False
+
+main :: IO ()
+main = do
+    putStrLn "Enter the first boolean value (True/False):"
+    input1 <- getLine
+    putStrLn "Enter the second boolean value (True/False):"
+    input2 <- getLine
+
+    let bool1 = read input1 :: Bool
+        bool2 = read input2 :: Bool
+        result = andpat bool1 bool2
+
+    putStrLn $ "Result of andpat function: " ++ show result
+
+Output:
+ 
+
+
+
+
+
+EX:5
+OR Gate (Wildcard)
+Aim:
+	Write a code for OR gate using Wildcard
+Code:
+orpat :: Bool -> Bool -> Bool
+orpat False b = b
+orpat True _ = True
+
+main :: IO ()
+main = do
+    putStrLn "Enter the first boolean value (True/False):"
+    input1 <- getLine
+    putStrLn "Enter the second boolean value (True/False):"
+    input2 <- getLine
+
+    let bool1 = read input1 :: Bool
+        bool2 = read input2 :: Bool
+        result = orpat bool1 bool2
+
+    putStrLn $ "Result of orpat function: " ++ show result
+
+Output:
+ 
+
+
+                                                   
+
+
+
+EX:6
+XOR Gate (Wildcard)
+Aim:
+	Write a code for XOR gate using Wildcard
+Code:
+xorpat :: Bool -> Bool -> Bool
+xorpat True False = True
+xorpat False True = True
+xorpat _ _ = False
+
+main :: IO ()
+main = do
+    putStrLn "Enter the first boolean value (True/False):"
+    input1 <- getLine
+    putStrLn "Enter the second boolean value (True/False):"
+    input2 <- getLine
+
+    let bool1 = read input1 :: Bool
+        bool2 = read input2 :: Bool
+        result = xorpat bool1 bool2
+
+    putStrLn $ "Result of xorpat function: " ++ show result
+
+Output:
+ 
+
+
+
+
+
+
+EX:7
+Factorial (Using Guard Function)
+Aim:
+	Write a code for Factorial
+Code:
+factorial :: Integer -> Integer
+factorial n
+    | n == 0    = 1
+    | n > 0     = n * factorial (n - 1)
+    | otherwise = error "Factorial is not defined for negative numbers"
+
+
+main :: IO ()
+main = do
+    putStrLn "Enter a number to calculate its factorial:"
+    input <- getLine
+    let n = read input :: Integer
+    putStrLn $ "Factorial of " ++ show n ++ " is: " ++ show (factorial n)
+
+Output:
+ 
+
+
+
+
+
+
+
+EX:8
+Fibonacci (without Guard Function)
+Aim:
+	Write a code for Fibonacci without using Guard Function
+Code:
+fibonacci :: Int -> Int
+fibonacci 0 = 0
+fibonacci 1 = 1
+fibonacci n = fibonacci (n - 1) + fibonacci (n - 2)
+
+main :: IO ()
+main = do
+    putStrLn "Enter a number to calculate its Fibonacci:"
+    input <- getLine
+    let n = read input :: Int
+    putStrLn $ "Fibonacci of " ++ show n ++ " is: " ++ show (fibonacci n)
+Output:
+ 
+
+
+
+
+
+
+
+
+
+EX:9
+Fibonacci (Using Guard Function)
+Aim:
+	Write a code for Fibonacci using Guard Function
+Code:
+fibonacci :: Int -> Int
+fibonacci n
+    | n == 0    = 0
+    | n == 1    = 1
+    | n > 1     = fibonacci (n - 1) + fibonacci (n - 2)
+    | otherwise = error "Fibonacci is not defined for negative numbers"
+
+main :: IO ()
+main = do
+    putStrLn "Enter a number to calculate its Fibonacci:"
+    input <- getLine
+    let n = read input :: Int
+    putStrLn $ "Fibonacci of " ++ show n ++ " is: " ++ show (fibonacci n)
+
+Output:
+
+ 
+
+
+
+
+
+
+
+
+EX:10
+HCF
+Aim:
+	Write a code for HCF
+Code:
+gcd' :: Integer -> Integer -> Integer
+gcd' a 0 = a
+gcd' a b = gcd' b (a `mod` b)
+
+main :: IO ()
+main = do
+    putStrLn "Enter the first number:"
+    input1 <- getLine
+    putStrLn "Enter the second number:"
+    input2 <- getLine
+    let num1 = read input1 :: Integer
+        num2 = read input2 :: Integer
+    putStrLn $ "GCD of " ++ show num1 ++ " and " ++ show num2 ++ " is: " ++ show (gcd' num1 num2)
+
+Output:
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+EX:11
+LCM
+Aim:
+	Write a code for LCM
+Code:
+gcd' :: Integer -> Integer -> Integer
+gcd' a 0 = a
+gcd' a b = gcd' b (a `mod` b)
+
+lcm' :: Integer -> Integer -> Integer
+lcm' a b = abs (a * b) `div` gcd' a b
+
+main :: IO ()
+main = do
+    putStrLn "Enter the first number:"
+    input1 <- getLine
+    putStrLn "Enter the second number:"
+    input2 <- getLine
+    let num1 = read input1 :: Integer
+        num2 = read input2 :: Integer
+    putStrLn $ "LCM of " ++ show num1 ++ " and " ++ show num2 ++ " is: " ++ show (lcm' num1 num2)
+
+Output:
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+EX:12
+Append Right
+Aim:
+	Write a code to append an element to right
+Code:
+appendRight :: [a] -> a -> [a]
+appendRight xs x = xs ++ [x]
+
+main :: IO ()
+main = do
+    putStrLn "Enter a list of elements separated by spaces:"
+    input <- getLine
+    let elements = words input
+    putStrLn "Enter an element to append to the list:"
+    element <- getLine
+    putStrLn $ "List after appending: " ++ show (appendRight elements element)
+
+Output:
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+EX:13
+Length of a List
+Aim:
+	Write a code to find length of a list
+Code:
+length' :: [a] -> Int
+length' [] = 0
+length' (_:xs) = 1 + length' xs
+
+main :: IO ()
+main = do
+    putStrLn "Enter a list of elements separated by spaces:"
+    input <- getLine
+    let elements = words input
+    putStrLn $ "Length of the list: " ++ show (length' elements)
+
+Output:
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+EX:14
+Reverse without In-built function
+Aim:
+	Write a code to find reverse without built in functions
+Code:
+reverse' :: [a] -> [a]
+reverse' [] = []
+reverse' (x:xs) = reverse' xs ++ [x]
+
+main :: IO ()
+main = do
+    putStrLn "Enter a list of elements separated by spaces:"
+    input <- getLine
+    let elements = words input
+    putStrLn $ "Reversed list: " ++ show (reverse' elements)
+
+Output:
+ 
+
+
+
+
+
+
+
+
+
+
+
+EX:15
+Reverse with in-build function
+Aim:
+	Write a code to find reverse with built in functions
+Code:
+reverseWithBuiltIn :: [a] -> [a]
+reverseWithBuiltIn = reverse
+
+main :: IO ()
+main = do
+    putStrLn "Enter a list of elements separated by spaces:"
+    input <- getLine
+    let elements = words input
+    putStrLn $ "Reversed list: " ++ show (reverseWithBuiltIn elements)
+
+Output:
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+EX:16
+Sum of List
+Aim:
+	Write a code to find sum of a list
+Code:
+sumList :: Num a => [a] -> a
+sumList [] = 0
+sumList (x:xs) = x + sumList xs
+
+main :: IO ()
+main = do
+    putStrLn "Enter a list of numbers separated by spaces:"
+    input <- getLine
+    let numbers = map read $ words input :: [Int]
+    putStrLn $ "Sum of the list: " ++ show (sumList numbers) 
+
+Output:
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+EX:17
+Fcator of a Number (List Comprehension)
+Aim:
+	Write a code to find factors for a number
+Code:
+factors :: Int -> [Int]
+factors n = [x | x <- [1..n], n `mod` x == 0]
+
+main :: IO ()
+main = do
+    putStrLn "Enter a number to find its factors:"
+    input <- getLine
+    let num = read input :: Int
+    putStrLn $ "Factors of " ++ show num ++ ": " ++ show (factors num)
+
+Output:
+ 
+
+
+
+
+
+
+
+
+
+
+
+EX:18
+Prime (List Comprehension)
+Aim:
+	Write a code to find prime numbers
+Code:
+isPrime :: Int -> Bool
+isPrime n = n > 1 && all (\x -> n `mod` x /= 0) [2..floor (sqrt (fromIntegral n))]
+
+primesUpTo :: Int -> [Int]
+primesUpTo n = [x | x <- [2..n], isPrime x]
+
+main :: IO ()
+main = do
+    putStrLn "Enter a number to find all prime numbers smaller or equal to it:"
+    input <- getLine
+    let num = read input :: Int
+    putStrLn $ "Prime numbers up to " ++ show num ++ ": " ++ show (primesUpTo num)
+
+Output:
+ 
+
+
+
+
+
+
+
+
+
+
+
+EX:19
+Upper to Lower
+Aim:
+	Write a code to convert Upper case to Lower case
+Code:
+import Data.Char
+
+toLowerCase :: Char -> Char
+toLowerCase c
+    | c >= 'A' && c <= 'Z' = chr (ord c + 32)
+    | otherwise = c
+
+toLowerCaseString :: String -> String
+toLowerCaseString = map toLowerCase
+
+main :: IO ()
+main = do
+    putStrLn "Enter a string in uppercase:"
+    input <- getLine
+    putStrLn $ "\nString in lowercase: " ++ toLowerCaseString input
+
+Output:
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+EX:20
+Tuple Sum
+Aim:
+	Write a code to find Tuple sum
+Code:
+tupleSum :: (Int, Int) -> Int
+tupleSum (x, y) = x + y
+
+main :: IO ()
+main = do
+    putStrLn "Enter two numbers separated by a space to compute their tuple sum:"
+    input <- getLine
+    let (x:y:_) = map read $ words input :: [Int]
+    putStrLn $ "Tuple sum: " ++ show (tupleSum (x, y))
+
+Output:
+ 
+
+
+
+
+
+
+
+
+
+
+EX:21
+Remove Duplicates – Filter
+Aim:
+	Write a code to remove duplicates
+Code:
+removeDuplicates :: Eq a => [a] -> [a]
+removeDuplicates [] = []
+removeDuplicates (x:xs) = x : removeDuplicates (filter (/= x) xs)
+
+main :: IO ()
+main = do
+    putStrLn "Enter a list of elements separated by spaces:"
+    input <- getLine
+    let elements = words input
+    putStrLn $ "List after removing duplicates: " ++ unwords (removeDuplicates elements)
+
+Output:
+
+ 
+
+
+
+
+
+
+
+
+
+
+EX:22
+Even Numbers – Map
+Aim:
+	Write a code to find list of even numbers
+Code:
+findEven :: Integral a => [a] -> [a]
+findEven = filter even
+
+main :: IO ()
+main = do
+    putStrLn "Enter a list of integers separated by spaces:"
+    input <- getLine
+    let numbers = map read $ words input :: [Int]
+    putStrLn $ "Even elements from the list: " ++ unwords (map show (findEven numbers))
+
+Output:
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+EX:23
+Decimal to Integer Using Foldl
+Aim:
+	Write a code to convert decimal to int
+Code:
+import Data.Char (digitToInt)
+
+decimalToInteger :: Double -> Int
+decimalToInteger = foldl (\acc x -> acc * 10 + digitToInt x) 0 . show . truncate
+
+main :: IO ()
+main = do
+    putStrLn "Enter a decimal number:"
+    input <- getLine
+    let number = read input :: Double
+    putStrLn $ "Integer representation of the decimal number: " ++ show (decimalToInteger number)
+
+Output:
+
+ 
+
+
+
+
+
+
+
+EX:24
+Monads – Divison
+Aim:
+	Write a code for division monads
+Code:
+data Expr = Val Int | Div Expr Expr
+
+safediv :: Int->Int->Maybe Int
+safediv _ 0 = Nothing
+safediv n m = Just (div n m)
+
+eval :: Expr->Maybe Int
+eval (Val n) = Just n
+eval (Div x y) = case eval x of
+ Nothing -> Nothing
+ Just n -> case eval y of
+   Nothing -> Nothing
+   Just m -> safediv n m
+  
+main :: IO()
+main = do 
+  putStrLn "Enter num : "
+  n1 <- getLine
+  putStrLn "Enter Deno:"
+  n2 <- getLine
+  let v1 = read n1 :: Int
+  let v2 = read n2 :: Int
+  let exp = eval (Div (Val v1) (Val v2))
+  putStrLn $ "Answer : " ++ show exp
+
+Output:
+
+ 
+EX:25
+Basic Calculator
+Aim:
+	To Implement a program that functions as a basic calculator
+Code:
+use std::io;
+fn main() {
+	println!("----------------------- Simple Calculator -----------------------");
+	let mut x = String::new();
+	let mut y = String::new();
+	let mut op = String::new();
+	
+	println!("Enter 1st number : ");
+	io::stdin().read_line(&mut x).expect("Failed");
+	let x: i32 = x.trim().parse().expect("Failed");
+	
+	println!("Enter 2nd number : ");
+	io::stdin().read_line(&mut y).expect("Failed");
+	let y: i32 = y.trim().parse().expect("Failed");
+	
+	println!("\nChoose a option:\nAdd --> 1\nSub --> 2\nMul --> 3\nDiv --> 4\nMOd --> 5\n");
+	io::stdin().read_line(&mut op).expect("Failed");
+	let op: i32 = op.trim().parse().expect("Failed");
+	
+	match op{
+		1 => println!("Answer : {}", add(x,y)),
+		2 => println!("Answer : {}", sub(x,y)),
+		3 => println!("Answer : {}", mul(x,y)),
+		4 => println!("Answer : {}", div(x,y)),
+		5 => println!("Answer : {}", modulo(x,y)),
+		_ => println!("Invalid Choice")
+	}
+}
+fn add(x:i32, y:i32)->i32{ x+y }
+fn sub(x:i32, y:i32)->i32{ x-y }
+fn mul(x:i32, y:i32)->i32{ x*y }
+fn div(x:i32, y:i32)->i32{ x/y }
+fn modulo(x:i32, y:i32)->i32{ x%y }
+
+Output:
+ 
+ 
+EX:26
+Guessing Game
+Aim:
+	Write a code for guessing game in rust
+Code:
+use std::io;
+use rand::Rng;
+// Add to toml file
+// [dependencies]
+// rand = "0.8.5"
+
+fn main() {
+    println!("   -------------------- Guessing Game --------------------   ");
+    let num: u32 = rand::thread_rng().gen_range(1..=10);
+    loop{
+    	println!("Please input your guess : ");
+    	let mut guess = String::new();
+    	
+    	io::stdin().read_line(&mut guess).expect("Failed to read line");
+    	let guess: u32 = match guess.trim().parse(){
+    		Ok(num) => num,
+    		Err(_) => continue,
+    	};
+    	println!("You guessed: {guess}");
+    	if guess == num{
+    		println!("   -------------------- You win!! --------------------   ");
+    		break;
+    	}
+    }
+}
+Output:
+
+ 
+
+EX:27
+Prime Numbers
+Aim:
+	To Implement a program that generates prime numbers within the given range.
+Code:
+use std::io;
+fn is_prime(n: u32)->bool{
+	if n<= 1{
+		return false;
+	}
+	
+	for i in 2..=n/2{
+		if n%i == 0 {
+			return false
+		}
+	}
+	true
+}
+
+fn main() {
+    println!("Enter a number : ");
+    let mut n = String::new();
+    io::stdin().read_line(&mut n).expect("Failed to read line");
+    let n: u32 = n.trim().parse().expect("Failed to read line");
+    
+    println!("Prime NUmbers are : \n");
+    for i in 1..=n{
+    	if is_prime(i){
+    		println!("{}", i)
+    	}
+    }
+    
+}
+
+Output:
+ 
+
+EX:28
+Palindrome
+Aim:
+	Write a program that checks whether the given string is a palindrome or not.
+Code:
+use std::io;
+
+fn is_palindrome(s: &str) -> bool {
+    let reversed: String = s.chars().rev().collect();
+    s == reversed
+}
+
+fn main() {
+    println!("Enter a string:");
+    let mut input = String::new();
+    io::stdin().read_line(&mut input).expect("Failed to read line");
+    let input = input.trim();
+
+    if is_palindrome(input) {
+        println!("The string is a palindrome.");
+    } else {
+        println!("The string is not a palindrome.");
+    }
+}
+
+Output:
+ 
+
+
+
+
+
+
+EX:29
+String Slices
+Aim:
+(i)Creating a string and obtaining a slice from it.
+(ii)Modifying the original string while keeping the slice valid.
+(iii)Defining functions that take slices as arguments or return slices.
+(iv)Utilizing slices to obtain substrings from strings. 
+Code:
+fn main() {
+    let s = String::from("Hello, World!");
+    let slice1 = &s[0..5]; // "Hello"
+    println!("{}", slice1);
+
+    let len = s.len();
+    let slice2 = &s[7..len]; // "World!"
+    println!("{}", slice2);
+
+    fn first_word(s: &str) -> &str {
+        let bytes = s.as_bytes();
+        for (i, &byte) in bytes.iter().enumerate() {
+            if byte == b' ' {
+                return &s[0..i];
+            }
+        }
+        &s[..]
+    }
+
+    let word = first_word(&s);
+    println!("First word: {}", word);
+
+    let substring = &s[7..12]; // "World"
+    println!("{}", substring);
+}
+
+Output:
+ 
+
+EX:30
+Structs in Rust
+Aim:
+Suppose you are building a library management system in Rust. Define a structure representing a book. Each book should have the following properties:
+Title
+Author
+ISBN (International Standard Book Number)
+Publication year
+Additionally, implement methods for the book structure:
+new: A constructor method to create a new book instance.
+print_details: A method to print the details of the book, including its title, author, ISBN, and publication year.
+Write Rust code to define the structure and implement the methods. Create two book instances with different details and print their details using the print_details method.
+Code:
+struct Book {
+    title: String,
+    author: String,
+    isbn: String,
+    publication_year: u32,
+}
+
+impl Book {
+    fn new(title: &str, author: &str, isbn: &str, publication_year: u32) -> Book {
+        Book {
+            title: String::from(title),
+            author: String::from(author),
+            isbn: String::from(isbn),
+            publication_year,
+        }
+    }
+
+    fn print_details(&self) {
+        println!("Title: {}", self.title);
+        println!("Author: {}", self.author);
+        println!("ISBN: {}", self.isbn);
+        println!("Publication Year: {}", self.publication_year);
+    }
+}
+
+fn main() {
+    let book1 = Book::new("The Rust Programming Language", "Steve Klabnik", "1593278284", 2018);
+    let book2 = Book::new("Programming Rust", "Jim Blandy", "1491927283", 2019);
+
+    println!("Book 1 Details:");
+    book1.print_details();
+
+    println!("\nBook 2 Details:");
+    book2.print_details();
+}
+
+Output:
+ 
+
+
+
+
+
+
+
+
+
+
+
+EX:31
+Weather Monitoring
+Aim:
+You are developing a simple weather monitoring application in Rust. Design a program that stores weather data for a week. Each day's weather data should include the following information:
+Day of the week (e.g., Monday, Tuesday, etc.)
+Temperature (in Celsius)
+Humidity (as a percentage)
+Implement the following functionalities:
+
+Define a structure named WeatherData that represents a single day's weather data using a tuple.
+Create an array named weekly_weather to store weather data for a week (7 days).
+Implement a function named print_weekly_weather that takes the weekly_weather array as input and prints the weather data for each day in a readable format.
+Write the main function to create instances of WeatherData, populate the weekly_weather array, and call the print_weekly_weather function to display the weather data.
+Write the Rust code to implement the above functionalities.
+Code:
+struct WeatherData {
+    day_of_week: String,
+    temperature: f64,
+    humidity: u32,
+}
+
+impl WeatherData {
+    fn new(day_of_week: &str, temperature: f64, humidity: u32) -> WeatherData {
+        WeatherData {
+            day_of_week: String::from(day_of_week),
+            temperature,
+            humidity,
+        }
+    }
+}
+
+fn print_weekly_weather(weekly_weather: &[WeatherData; 7]) {
+    for data in weekly_weather {
+        println!("Day: {}", data.day_of_week);
+        println!("Temperature: {}°C", data.temperature);
+        println!("Humidity: {}%", data.humidity);
+        println!("----------------------");
+    }
+}
+
+fn main() {
+    let weekly_weather = [
+        WeatherData::new("Monday", 25.5, 60),
+        WeatherData::new("Tuesday", 26.0, 65),
+        WeatherData::new("Wednesday", 24.0, 70),
+        WeatherData::new("Thursday", 23.5, 75),
+        WeatherData::new("Friday", 25.0, 70),
+        WeatherData::new("Saturday", 27.0, 68),
+        WeatherData::new("Sunday", 28.0, 66),
+    ];
+
+    print_weekly_weather(&weekly_weather);
+}
+
+Output:
+ 
+
+
+
+EX:32
+HashMaps In Rust
+Aim:
+	To write a program in Rust that allows users to add student records by entering their name, age, and grade and then display all the records. It uses a HashMap to store student records, where the student's name is the key. The Student struct contains the student's name, age, and grade. The program presents a simple menu-driven interface using a loop and match statement.
+
+Code:
+use std::collections::HashMap;
+use std::io;
+
+// Define the Student struct
+#[derive(Debug)]
+struct Student {
+    name: String,
+    age: u32,
+    grade: u32,
+}
+
+impl Student {
+    // Constructor method to create a new student instance
+    fn new(name: String, age: u32, grade: u32) -> Self {
+        Student { name, age, grade }
+    }
+
+    // Method to print details of the student
+    fn print_details(&self) {
+        println!("Name: {}, Age: {}, Grade: {}", self.name, self.age, self.grade);
+    }
+}
+
+fn main() {
+    let mut students: HashMap<String, Student> = HashMap::new();
+
+    loop {
+        println!("Menu:");
+        println!("1. Add student record");
+        println!("2. Display all records");
+        println!("3. Exit");
+        println!("Enter your choice:");
+
+        let mut choice = String::new();
+        io::stdin().read_line(&mut choice)
+            .expect("Failed to read line");
+
+        match choice.trim().parse() {
+            Ok(1) => {
+                println!("Enter student name:");
+                let mut name = String::new();
+                io::stdin().read_line(&mut name)
+                    .expect("Failed to read line");
+
+                println!("Enter student age:");
+                let mut age = String::new();
+                io::stdin().read_line(&mut age)
+                    .expect("Failed to read line");
+                let age: u32 = age.trim().parse()
+                    .expect("Please enter a valid age");
+
+                println!("Enter student grade:");
+                let mut grade = String::new();
+                io::stdin().read_line(&mut grade)
+                    .expect("Failed to read line");
+                let grade: u32 = grade.trim().parse()
+                    .expect("Please enter a valid grade");
+
+                let student = Student::new(name.trim().to_string(), age, grade);
+                students.insert(student.name.clone(), student);
+                println!("Student record added successfully!");
+            }
+            Ok(2) => {
+                println!("Student records:");
+                for (_, student) in &students {
+                    student.print_details();
+                }
+            }
+            Ok(3) => {
+                println!("Exiting program...");
+                break;
+            }
+            _ => {
+                println!("Invalid choice. Please enter a valid option.");
+            }
+        }
+    }
+}
+
+
+
+
+Output:
+ 
+
